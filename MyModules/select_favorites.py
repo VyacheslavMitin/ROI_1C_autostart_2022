@@ -1,9 +1,7 @@
 # Модуль работы с меню "робот" в ИТКО
-
+# from MyModules.select_favorites import selecting_favorites
 import time
 import pyautogui as pg
-# Мои модули
-# from MyModules.select_favorites import selecting_favorites
 
 
 def selecting_favorites(point):
@@ -17,11 +15,12 @@ def selecting_favorites(point):
     6 - Загрузка 014
     7 - Оборотно-сальдовая ведомость по счету"""
 
-    timeout = 0.5  # без таймаута
+    timeout = 1  # без таймаута
+    for item in range(3):
+        time.sleep(0.5)
+        pg.hotkey('ctrl', 'shift', 'b')  # вызов меню избранного 1С
 
-    pg.hotkey('ctrl', 'shift', 'b')  # вызов меню избранного 1С
-
-    time.sleep(timeout)
+    time.sleep(5)
 
     pg.press('down', presses=point, interval=timeout)
     time.sleep(timeout)

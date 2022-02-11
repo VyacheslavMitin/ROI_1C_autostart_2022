@@ -34,14 +34,18 @@ def start_1c(
     if check_start_1c():  # проверка результата функции, True
         if actions == '0':  # ничего не делать
             pass
-        elif actions == '1':  #
-            pass
-        elif actions == '2':  #
-            pass
-        elif actions == '3':  #
-            pass
-        elif actions == '+':  #
-            pass
+        elif actions == '1':  # Договоры
+            from MyModules.actions_contracts import actions_1c_contracts
+            actions_1c_contracts()
+        elif actions == '2':  # Диадок
+            from MyModules.actions_diadoc import actions_1c_diadok
+            actions_1c_diadok()
+        elif actions == '3':  # Выручка
+            from MyModules.actions_revenue import actions_revenue
+            actions_revenue()
+        elif actions == '4':  # 014
+            from MyModules.actions_014 import actions_014
+            actions_014()
 
     else:  # проверка результата функции, False
         print_log("Не удалось запустить 1С! Выход с ошибкой!")
@@ -49,4 +53,4 @@ def start_1c(
 
 
 if __name__ == '__main__':
-    start_1c()
+    start_1c(actions='2')

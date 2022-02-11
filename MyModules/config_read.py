@@ -52,4 +52,3 @@ if __name__ == '__main__':
     print(SAMARA_BASE)
     print(ULYAN_SERVER)
     print(VSKK_URL)
-

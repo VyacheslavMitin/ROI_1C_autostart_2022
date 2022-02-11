@@ -43,13 +43,13 @@ def main():
     if select == '0':
         start_1c()
     elif select == '1':
-        pass
+        start_1c(actions='1')
     elif select == '2':
-        pass
+        start_1c(actions='2')
     elif select == '3':
-        pass
+        start_1c(actions='3')
     elif select == '4':
-        pass
+        start_1c(actions='4')
     elif select == '5':
         start_1c_vskk()
     elif select == '6':
