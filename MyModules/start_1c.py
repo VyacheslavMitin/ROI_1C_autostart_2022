@@ -3,13 +3,23 @@ import subprocess
 import sys
 
 # Импорт моих модулей
-from ROI_base import *  # мой модуль для вывода времени
-import ROI_common  # мой модуль для создания папок, определения дат, запуска проводника
+from ROI_base import print_log  # мой модуль для вывода времени
 from MyModules.config_read import *
 from MyModules.check_1c_start import check_start_1c
 
 
-def start_1c(mode='ENTERPRISE', type_bases='/S', server_1c='vs151', path_bases='BUH-KORP-63', actions='0'):
+def start_1c(
+
+        mode='ENTERPRISE',
+        type_bases='/S',
+        server_1c=SAMARA_SERVER,
+        base_1c=SAMARA_BASE,
+        login_1c=LOGIN_1C_SAMARA,
+        pass_1c=PASS_1C_SAMARA,
+        actions='0'
+
+):
+
     """Функция входа в программы 1С (кроме ВСКК)."""
     print_log(f"Запуск '1C' c выбранным режимом", line_before=True)
 
@@ -17,7 +27,7 @@ def start_1c(mode='ENTERPRISE', type_bases='/S', server_1c='vs151', path_bases='
         ONEC_BIN,  # вызов бинарника 1С - толстого клиента
         mode,  # 'ENTERPRISE', 'CONFIG' - mode, режим работы 1С, по умолчанию Предприятие
         type_bases,  # '/F' - файловая база, '/S' - SQL, тип базы, по умолчанию SQL
-        path_bases,  # путь к базе, по умолчанию SQL 'TKF2020'
+        server_1c + '/' + base_1c,  # путь к базе
         '/N', login_1c, '/P', pass_1c  # данные для логина и авторизации
     ])
 
@@ -33,11 +43,10 @@ def start_1c(mode='ENTERPRISE', type_bases='/S', server_1c='vs151', path_bases='
         elif actions == '+':  #
             pass
 
-        print_log("Выход из модуля", line_before=True, line_after=True)
-        pg.alert(f"'1C' в режиме {mode} {type_bases} {path_bases} {actions}\n"
-                 f"отработала!\nВремя {datetime.now().strftime('%H-%M')}",
-                 title=f'1C {mode} {path_bases}', button='OK')  # окно об успехе
-
     else:  # проверка результата функции, False
         print_log("Не удалось запустить 1С! Выход с ошибкой!")
         sys.exit(1)
+
+
+if __name__ == '__main__':
+    start_1c()

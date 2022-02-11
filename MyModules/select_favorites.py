@@ -3,7 +3,7 @@
 import time
 import pyautogui as pg
 # Мои модули
-# from MyModules.select_menu import selecting_menu
+# from MyModules.select_favorites import selecting_favorites
 
 
 def selecting_favorites(point):

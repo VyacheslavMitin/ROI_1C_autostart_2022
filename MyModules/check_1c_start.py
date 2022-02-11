@@ -4,8 +4,8 @@
 import pyautogui as pg
 import time
 # Импорт моих модулей
-from ROI_base import *  # мой модуль для вывода времени
-import ROI_common  # мой модуль для создания папок, определения дат, запуска проводника
+from ROI_base import print_log  # мой модуль для вывода времени
+from MyModules.config_read import *
 
 
 def check_start_1c(attempts=180):

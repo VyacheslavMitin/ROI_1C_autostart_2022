@@ -43,3 +43,4 @@ def pyautogui_menu() -> str:
 
 if __name__ == '__main__':
     print(pyautogui_menu())
+    print(type(pyautogui_menu()))

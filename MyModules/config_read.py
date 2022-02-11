@@ -35,8 +35,12 @@ LOGIN_1C_VSKK = cfg.get('AUTHORIZATION', 'login_vskk')  # логин и паро
 PASS_1C_VSKK = cfg.get('AUTHORIZATION', 'pass_vskk')
 
 SAMARA_SERVER = cfg.get('SERVERS', 'samara_serv')  # имя сервера для SQL
-ULYAN_SERVER = cfg.get('SERVERS', 'ulyan_serv')  # имя сервера для SQL
+SAMARA_BASE = cfg.get('SERVERS', 'samara_base')  # имя сервера для SQL
+
 VSKK_URL = cfg.get('SERVERS', 'vskk_url')  # ссылка для ВСКК
+
+ULYAN_SERVER = cfg.get('SERVERS', 'ulyan_serv')  # имя сервера для SQL
+
 
 if __name__ == '__main__':
     print(ONEC_BIN)
@@ -45,6 +49,7 @@ if __name__ == '__main__':
     print(LOGIN_1C_VSKK)
     print(PASS_1C_VSKK)
     print(SAMARA_SERVER)
+    print(SAMARA_BASE)
     print(ULYAN_SERVER)
     print(VSKK_URL)
-    print()
+

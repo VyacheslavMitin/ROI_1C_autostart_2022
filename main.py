@@ -1,10 +1,7 @@
 # Модуль автоматизации работы в 1С.
 # Python 3.8
-__author__ = 'Vyacheslav Mitin <vyacheslav.mitin@gmail.com>'
-__version__ = '13 - разработка'
 
 # Импорты
-import os
 import sys
 import time
 import pyautogui as pg  # установить через pip install pyautogui
@@ -14,7 +11,7 @@ from MyModules.menu_gui import pyautogui_menu
 
 
 # ФУНКЦИИ
-def welcoming(name_='Автоматизация 1C', author_='Вячеслав Митин', version_='0.1'):
+def welcoming(name_='Автоматизация 1C', author_='Вячеслав Митин', version_='2.0'):
     """Функция приветствия"""
     print(f"МОДУЛЬ РАБОТЫ '{name_}'")
     print(f"Автор модуля: '{author_}'")
@@ -33,19 +30,29 @@ def main():
     welcoming()
 
     select = pyautogui_menu()  # запуск меню
-    if select == 0:
+
+    start_1c, start_1c_vskk = None, None
+    if select in ('0', '1', '2', '3', '4',):
+        from MyModules.start_1c import start_1c
+    elif select in ('5', '6',):
+        from MyModules.start_1c_vskk import start_1c_vskk
+    else:
+        print_log("Выход без действия")
+        sys.exit(0)
+
+    if select == '0':
+        start_1c()
+    elif select == '1':
         pass
-    elif select == 1:
+    elif select == '2':
         pass
-    elif select == 2:
+    elif select == '3':
         pass
-    elif select == 3:
+    elif select == '4':
         pass
-    elif select == 4:
-        pass
-    elif select == 5:
-        pass
-    elif select == 6:
+    elif select == '5':
+        start_1c_vskk()
+    elif select == '6':
         pass
 
     success_window_alert()
